@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IntegrationPatterns.Router
 {
-	class Program
+	class ProgramConsole
 	{
 		private static readonly MessageQueue ROUTER_QUEUE = new MessageQueue(@".\private$\router");
 		private static readonly MessageQueue CLIENT_A = new MessageQueue(@".\private$\a");
@@ -21,7 +21,7 @@ namespace IntegrationPatterns.Router
 			{ CLIENT_C.Path, CLIENT_C }
 		};
 
-		static async Task Main(string[] args)
+		static void Main(string[] args)
 		{
 			VerifyQueuesExistAndEmpty();
 
@@ -29,7 +29,7 @@ namespace IntegrationPatterns.Router
 			QueueReader.BeginReceive(CLIENT_A, WriteToConsole);
 			QueueReader.BeginReceive(CLIENT_B, WriteToConsole);
 			QueueReader.BeginReceive(CLIENT_C, WriteToConsole);
-			await router.BeginReceive();
+			router.BeginReceive();
 
 			var messages = new List<RoutedMessage>
 			{
@@ -75,7 +75,7 @@ namespace IntegrationPatterns.Router
 
 		private static void CleanUp()
 		{
-			ROUTER_QUEUE.Close();
+			// Hvorfor udløser dette en exception???????????
 			ROUTER_QUEUE.Delete();
 			CLIENT_A.Delete();
 			CLIENT_B.Delete();

@@ -21,9 +21,9 @@ namespace IntegrationPatterns.Router
 			this.clientQueues = clientQueues;
 		}
 
-		public async Task BeginReceive()
+		public void BeginReceive()
 		{
-			await Task.Run(() => QueueReader.BeginReceive(routerQueue, OnMessageReceived));
+			QueueReader.BeginReceive(routerQueue, OnMessageReceived);
 		}
 
 		private void OnMessageReceived(Message message)

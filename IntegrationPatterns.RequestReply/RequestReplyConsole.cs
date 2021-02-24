@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IntegrationPatterns.RequestReply
 {
-	class Program
+	class RequestReplyConsole
 	{
 		// Opret køerne som bliver brugt til at sende og modtage
 		private static readonly MessageQueue TO_REQUESTER = new MessageQueue(@".\private$\requester");
