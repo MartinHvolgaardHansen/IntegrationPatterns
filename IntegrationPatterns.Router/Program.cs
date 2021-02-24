@@ -10,20 +10,18 @@ namespace IntegrationPatterns.Router
 {
 	class Program
 	{
-		private static readonly MessageQueue ROUTER_QUEUE = new MessageQueue(@".\private$\router") { Label = "router" };
-		private static readonly MessageQueue CLIENT_A = new MessageQueue(@".\private$\a") { Label = "a" };
-		private static readonly MessageQueue CLIENT_B = new MessageQueue(@".\private$\b") { Label = "b" };
-		private static readonly MessageQueue CLIENT_C = new MessageQueue(@".\private$\c") { Label = "c" };
-		private static IDictionary<string, MessageQueue> CLIENTS = new Dictionary<string, MessageQueue>
-			{
-				{ CLIENT_A.Label, CLIENT_A
-	},
-				{ CLIENT_B.Label, CLIENT_B
-},
-				{ CLIENT_C.Label, CLIENT_C }
-			};
+		private static readonly MessageQueue ROUTER_QUEUE = new MessageQueue(@".\private$\router");
+		private static readonly MessageQueue CLIENT_A = new MessageQueue(@".\private$\a");
+		private static readonly MessageQueue CLIENT_B = new MessageQueue(@".\private$\b");
+		private static readonly MessageQueue CLIENT_C = new MessageQueue(@".\private$\c");
+		private static readonly IDictionary<string, MessageQueue> CLIENTS = new Dictionary<string, MessageQueue>
+		{
+			{ CLIENT_A.Path, CLIENT_A },
+			{ CLIENT_B.Path, CLIENT_B },
+			{ CLIENT_C.Path, CLIENT_C }
+		};
 
-static async Task Main(string[] args)
+		static async Task Main(string[] args)
 		{
 			VerifyQueuesExistAndEmpty();
 
@@ -35,12 +33,12 @@ static async Task Main(string[] args)
 
 			var messages = new List<RoutedMessage>
 			{
-				new RoutedMessage { Sender = CLIENT_A.Label, Destination = CLIENT_B.Label, Body = "Message from A to B" },
-				new RoutedMessage { Sender = CLIENT_A.Label, Destination = CLIENT_C.Label, Body = "Message from A to C" },
-				new RoutedMessage { Sender = CLIENT_B.Label, Destination = CLIENT_A.Label, Body = "Message from B to A" },
-				new RoutedMessage { Sender = CLIENT_B.Label, Destination = CLIENT_C.Label, Body = "Message from B to C" },
-				new RoutedMessage { Sender = CLIENT_C.Label, Destination = CLIENT_A.Label, Body = "Message from C to A" },
-				new RoutedMessage { Sender = CLIENT_C.Label, Destination = CLIENT_B.Label, Body = "Message from C to B" },
+				new RoutedMessage { Sender = CLIENT_A.Path, Destination = CLIENT_B.Path, Body = "Message from A to B" },
+				new RoutedMessage { Sender = CLIENT_A.Path, Destination = CLIENT_C.Path, Body = "Message from A to C" },
+				new RoutedMessage { Sender = CLIENT_B.Path, Destination = CLIENT_A.Path, Body = "Message from B to A" },
+				new RoutedMessage { Sender = CLIENT_B.Path, Destination = CLIENT_C.Path, Body = "Message from B to C" },
+				new RoutedMessage { Sender = CLIENT_C.Path, Destination = CLIENT_A.Path, Body = "Message from C to A" },
+				new RoutedMessage { Sender = CLIENT_C.Path, Destination = CLIENT_B.Path, Body = "Message from C to B" },
 			};
 
 			foreach (var m in messages)
@@ -64,9 +62,9 @@ static async Task Main(string[] args)
 		{
 			// Kontroller køerne eksisterer
 			ROUTER_QUEUE.VerifyRecreate();
-			CLIENT_A.Verify();
-			CLIENT_B.Verify();
-			CLIENT_C.Verify();
+			CLIENT_A.VerifyRecreate();
+			CLIENT_B.VerifyRecreate();
+			CLIENT_C.VerifyRecreate();
 
 			// Tøm køerne
 			ROUTER_QUEUE.Purge();
@@ -77,6 +75,7 @@ static async Task Main(string[] args)
 
 		private static void CleanUp()
 		{
+			ROUTER_QUEUE.Close();
 			ROUTER_QUEUE.Delete();
 			CLIENT_A.Delete();
 			CLIENT_B.Delete();
