@@ -25,18 +25,14 @@ namespace IntegrationPatterns.RequestReply
 			var messageToReplier2 = new Message(new Request("second"));
 			var messageToReplier3 = new Message(new Request("third"));
 
-			/*
-			 * "Task.Run" får koden til at køre asynkront for at bevise, 
-			 * at den rigtige "Reply" bliver sendt uanset rækkefølgen af "Request"
-			 */
 			// Start køerne op og sæt dem i "BeginReceive" (Se QueueReader klassen)
-			Task.Run(() => QueueReader.BeginRead(toReplier, OnRequestReceived));
-			Task.Run(() => QueueReader.BeginRead(toRequester, OnReplyReceived));
+			QueueReader.BeginRead(toReplier, OnRequestReceived);
+			QueueReader.BeginRead(toRequester, OnReplyReceived);
 
 			// Send "Requests" til "Replier" køen
-			Task.Run(() => toReplier.Send(messageToReplier1));
-			Task.Run(() => toReplier.Send(messageToReplier2));
-			Task.Run(() => toReplier.Send(messageToReplier3));
+			toReplier.Send(messageToReplier1);
+			toReplier.Send(messageToReplier2);
+			toReplier.Send(messageToReplier3);
 
 			// Forhindr konsollen i at lukke
 			Console.ReadLine();
