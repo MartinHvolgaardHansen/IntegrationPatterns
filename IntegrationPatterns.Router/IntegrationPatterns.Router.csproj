@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BCA770BA-4B1E-4DB6-A9E4-A6576A1B5B6F}</ProjectGuid>
+    <ProjectGuid>{0D930540-32F7-4BD6-9017-A2E3D6BCC595}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>IntegrationPatterns.RequestReply</RootNamespace>
-    <AssemblyName>IntegrationPatterns.RequestReply</AssemblyName>
+    <RootNamespace>IntegrationPatterns.Router</RootNamespace>
+    <AssemblyName>IntegrationPatterns.Router</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,11 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reply.cs" />
-    <Compile Include="Request.cs" />
+    <Compile Include="RoutedMessage.cs" />
+    <Compile Include="Router.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

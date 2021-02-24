@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IntegrationPatterns.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Messaging;
@@ -9,11 +10,9 @@ namespace IntegrationPatterns.RequestReply
 {
 	class Program
 	{
-		// Køerne, som bliver brugt til at sende og modtage
-		private static string PATH_TO_REQUESTER = @".\private$\requester";
-		private static string PATH_TO_REPLIER = @".\private$\replier";
-		private static MessageQueue toRequester = new MessageQueue(PATH_TO_REQUESTER);
-		private static MessageQueue toReplier = new MessageQueue(PATH_TO_REPLIER);
+		// Opret køerne som bliver brugt til at sende og modtage
+		private static readonly MessageQueue TO_REQUESTER = new MessageQueue(@".\private$\requester");
+		private static readonly MessageQueue TO_REPLIER = new MessageQueue(@".\private$\replier");
 
 		static void Main(string[] args)
 		{
@@ -26,16 +25,18 @@ namespace IntegrationPatterns.RequestReply
 			var messageToReplier3 = new Message(new Request("third"));
 
 			// Start køerne op og sæt dem i "BeginReceive" (Se QueueReader klassen)
-			QueueReader.BeginRead(toReplier, OnRequestReceived);
-			QueueReader.BeginRead(toRequester, OnReplyReceived);
+			QueueReader.BeginReceive(TO_REPLIER, OnRequestReceived);
+			QueueReader.BeginReceive(TO_REQUESTER, OnReplyReceived);
 
 			// Send "Requests" til "Replier" køen
-			toReplier.Send(messageToReplier1);
-			toReplier.Send(messageToReplier2);
-			toReplier.Send(messageToReplier3);
+			TO_REPLIER.Send(messageToReplier1);
+			TO_REPLIER.Send(messageToReplier2);
+			TO_REPLIER.Send(messageToReplier3);
 
 			// Forhindr konsollen i at lukke
 			Console.ReadLine();
+
+			CleanUp();
 		}
 
 		// Køres når "Replier" køen modtager en "Request"
@@ -54,7 +55,7 @@ namespace IntegrationPatterns.RequestReply
 				var reply = new Reply(request.Id, data);
 				Console.WriteLine("Replier received your request with ID: " + request.Id + ". Replying with data: " + reply.Data);
 				var messageToRequester = new Message(reply);
-				toRequester.Send(messageToRequester);
+				TO_REQUESTER.Send(messageToRequester);
 			}
 		}
 
@@ -73,13 +74,19 @@ namespace IntegrationPatterns.RequestReply
 		private static void VerifyQueuesExistAndEmpty()
 		{
 			// Kontroller køerne eksisterer
-			if (!MessageQueue.Exists(PATH_TO_REQUESTER))
-				MessageQueue.Create(PATH_TO_REQUESTER);
-			if (!MessageQueue.Exists(PATH_TO_REPLIER))
-				MessageQueue.Create(PATH_TO_REPLIER);
+			TO_REQUESTER.Verify();
+			TO_REPLIER.Verify();
+
 			// Tøm køerne
-			toRequester.Purge();
-			toReplier.Purge();
+			TO_REQUESTER.Purge();
+			TO_REPLIER.Purge();
+		}
+
+		private static void CleanUp()
+		{
+			// Slet køerne
+			TO_REQUESTER.Delete();
+			TO_REPLIER.Delete();
 		}
 	}
 }

@@ -5,11 +5,11 @@ using System.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IntegrationPatterns.RequestReply
+namespace IntegrationPatterns.Common
 {
-	static class QueueReader
+	public static class QueueReader
 	{
-		public static void BeginRead(MessageQueue queue, Action<Message> onReceiveCompleted)
+		public static void BeginReceive(MessageQueue queue, Action<Message> onReceiveCompleted)
 		{
 			queue.ReceiveCompleted += (s, e) => OnMessageReceived(s, e, onReceiveCompleted);
 			// Begynd at lytte på indkomne beskeder

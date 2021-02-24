@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationPatterns.RequestReply", "IntegrationPatterns.RequestReply\IntegrationPatterns.RequestReply.csproj", "{BCA770BA-4B1E-4DB6-A9E4-A6576A1B5B6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationPatterns.Router", "IntegrationPatterns.Router\IntegrationPatterns.Router.csproj", "{0D930540-32F7-4BD6-9017-A2E3D6BCC595}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationPatterns.Common", "IntegrationPatterns.Common\IntegrationPatterns.Common.csproj", "{A587E621-179E-4D7D-A00D-36EB7F47C644}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{BCA770BA-4B1E-4DB6-A9E4-A6576A1B5B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCA770BA-4B1E-4DB6-A9E4-A6576A1B5B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCA770BA-4B1E-4DB6-A9E4-A6576A1B5B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D930540-32F7-4BD6-9017-A2E3D6BCC595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D930540-32F7-4BD6-9017-A2E3D6BCC595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D930540-32F7-4BD6-9017-A2E3D6BCC595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D930540-32F7-4BD6-9017-A2E3D6BCC595}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A587E621-179E-4D7D-A00D-36EB7F47C644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A587E621-179E-4D7D-A00D-36EB7F47C644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A587E621-179E-4D7D-A00D-36EB7F47C644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A587E621-179E-4D7D-A00D-36EB7F47C644}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
