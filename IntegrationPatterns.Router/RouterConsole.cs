@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IntegrationPatterns.Router
 {
-	class ProgramConsole
+	class RouterConsole
 	{
 		private static readonly MessageQueue ROUTER_QUEUE = new MessageQueue(@".\private$\router");
 		private static readonly MessageQueue CLIENT_A = new MessageQueue(@".\private$\a");

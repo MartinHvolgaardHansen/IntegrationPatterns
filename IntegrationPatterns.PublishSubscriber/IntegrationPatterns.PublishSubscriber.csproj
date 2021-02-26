@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D930540-32F7-4BD6-9017-A2E3D6BCC595}</ProjectGuid>
+    <ProjectGuid>{7E572C53-FBE7-47F8-887A-71CE4D543C7D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>IntegrationPatterns.Router</RootNamespace>
-    <AssemblyName>IntegrationPatterns.Router</AssemblyName>
+    <RootNamespace>IntegrationPatterns.PublishSubscriber</RootNamespace>
+    <AssemblyName>IntegrationPatterns.PublishSubscriber</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,10 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RouterConsole.cs" />
+    <Compile Include="PublishedMessage.cs" />
+    <Compile Include="Publisher.cs" />
+    <Compile Include="PublishSubscriberConsole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoutedMessage.cs" />
-    <Compile Include="Router.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

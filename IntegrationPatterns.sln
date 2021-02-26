@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationPatterns.Router"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationPatterns.Common", "IntegrationPatterns.Common\IntegrationPatterns.Common.csproj", "{A587E621-179E-4D7D-A00D-36EB7F47C644}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationPatterns.PublishSubscriber", "IntegrationPatterns.PublishSubscriber\IntegrationPatterns.PublishSubscriber.csproj", "{7E572C53-FBE7-47F8-887A-71CE4D543C7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A587E621-179E-4D7D-A00D-36EB7F47C644}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A587E621-179E-4D7D-A00D-36EB7F47C644}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A587E621-179E-4D7D-A00D-36EB7F47C644}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E572C53-FBE7-47F8-887A-71CE4D543C7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E572C53-FBE7-47F8-887A-71CE4D543C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E572C53-FBE7-47F8-887A-71CE4D543C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E572C53-FBE7-47F8-887A-71CE4D543C7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
