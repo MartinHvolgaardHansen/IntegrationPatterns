@@ -28,11 +28,11 @@ namespace IntegrationPatterns.PublishSubscriber
 
 		private void OnMessageReceived(Message message)
 		{
-			publish(message);
+			Publish(message);
 			publishQueue.BeginReceive();
 		}
 
-		private void publish(Message message)
+		private void Publish(Message message)
 		{
 			foreach (var c in clientQueues)
 			{
