@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationPatterns.Common"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationPatterns.PublishSubscriber", "IntegrationPatterns.PublishSubscriber\IntegrationPatterns.PublishSubscriber.csproj", "{7E572C53-FBE7-47F8-887A-71CE4D543C7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationPatterns.Splitter", "IntegrationPatterns.Splitter\IntegrationPatterns.Splitter.csproj", "{15C87EA3-B5D6-4FE8-B0E9-8B9CD6AE8976}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7E572C53-FBE7-47F8-887A-71CE4D543C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E572C53-FBE7-47F8-887A-71CE4D543C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E572C53-FBE7-47F8-887A-71CE4D543C7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15C87EA3-B5D6-4FE8-B0E9-8B9CD6AE8976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15C87EA3-B5D6-4FE8-B0E9-8B9CD6AE8976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15C87EA3-B5D6-4FE8-B0E9-8B9CD6AE8976}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15C87EA3-B5D6-4FE8-B0E9-8B9CD6AE8976}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
