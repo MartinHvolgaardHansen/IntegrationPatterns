@@ -68,8 +68,8 @@ namespace IntegrationPatterns.Splitter
 
 		private static IEnumerable<Luggage> CreateLuggages()
 		{
-			var numberOfLuggages = 2;
-			for (int i = 0; i < numberOfLuggages; i++)
+			var numberOfLuggages = 5;
+			for (int i = 1; i <= numberOfLuggages; i++)
 			{
 				yield return new Luggage
 				{
@@ -97,7 +97,6 @@ namespace IntegrationPatterns.Splitter
 
 		private static void CleanUp()
 		{
-			// Hvorfor udløser dette en exception???????????
 			SPLITTER_QUEUE.Delete();
 			PASSENGER_INFO_QUEUE.Delete();
 			LUGGAGE_QUEUE.Delete();
