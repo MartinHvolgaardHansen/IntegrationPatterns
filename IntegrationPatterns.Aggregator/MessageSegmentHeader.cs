@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace IntegrationPatterns.Aggregator
 {
-    public class SegmentedMessageParent
+    public class MessageSegmentHeader
     {
-        public Guid Id { get; set; }
+        public string MessageId { get; set; }
         public int TotalSegments { get; set; }
-        public List<SegmentedMessage> Segments { get; set; }
+        public IEnumerable<MessageSegment> Segments { get; set; }
     }
 }
