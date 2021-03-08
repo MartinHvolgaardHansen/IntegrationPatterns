@@ -12,7 +12,7 @@ namespace IntegrationPatterns.Resequencer
 	{
 		private static readonly MessageQueue UNSEQUENCED_QUEUE = new MessageQueue(@".\private$\unsequenced");
 		private static readonly MessageQueue SEQUENCED_QUEUE = new MessageQueue(@".\private$\sequenced");
-		private static readonly Random random = new Random();
+		private static readonly Random RANDOM = new Random();
 
 		static void Main(string[] args)
 		{
@@ -52,7 +52,7 @@ namespace IntegrationPatterns.Resequencer
 			if (sequences < 1 || messagesPerSequence < 1)
 				throw new ArgumentException("A and B values cannot be zero or less");
 
-			for (int i = 1; i <= sequences; i++)
+			for (var i = 1; i <= sequences; i++)
 			{
 				var guid = Guid.NewGuid();
 				foreach (var sm in CreateSequenceMessages(guid, i, messagesPerSequence))
@@ -65,7 +65,7 @@ namespace IntegrationPatterns.Resequencer
 		private static IEnumerable<SequenceMessage> CreateSequenceMessages(Guid guid, int currentSequence, int messagesPerSequence)
 		{
 			var messages = new List<SequenceMessage>();
-			for (int i = 1; i <= messagesPerSequence; i++)
+			for (var i = 1; i <= messagesPerSequence; i++)
 			{
 				messages.Add(new SequenceMessage 
 				{ 
@@ -75,7 +75,7 @@ namespace IntegrationPatterns.Resequencer
 					SequenceMax = messagesPerSequence 
 				});
 			}
-			messages.Shuffle(random);
+			messages.Shuffle(RANDOM);
 			return messages;
 		}
 
