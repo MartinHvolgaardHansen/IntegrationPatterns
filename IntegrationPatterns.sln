@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationPatterns.Reseque
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationPatterns.Aggregator", "IntegrationPatterns.Aggregator\IntegrationPatterns.Aggregator.csproj", "{B48F4A64-E188-414E-A612-E71C11AFDB07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationPatterns.Canonical.Translator", "IntegrationPatterns.Canonical.Translator\IntegrationPatterns.Canonical.Translator.csproj", "{104EA1E6-2DB7-4B65-9603-928B04681893}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationPatterns.Canonical.MetaDataRepository", "IntegrationPatterns.Canonical.MetaDataRepository\IntegrationPatterns.Canonical.MetaDataRepository.csproj", "{9BA831B4-CF6B-4389-8105-644DE13EDD64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{B48F4A64-E188-414E-A612-E71C11AFDB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B48F4A64-E188-414E-A612-E71C11AFDB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B48F4A64-E188-414E-A612-E71C11AFDB07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{104EA1E6-2DB7-4B65-9603-928B04681893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104EA1E6-2DB7-4B65-9603-928B04681893}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{104EA1E6-2DB7-4B65-9603-928B04681893}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104EA1E6-2DB7-4B65-9603-928B04681893}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA831B4-CF6B-4389-8105-644DE13EDD64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA831B4-CF6B-4389-8105-644DE13EDD64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA831B4-CF6B-4389-8105-644DE13EDD64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA831B4-CF6B-4389-8105-644DE13EDD64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
