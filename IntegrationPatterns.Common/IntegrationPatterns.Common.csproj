@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="ListExtension.cs" />
     <Compile Include="MessageExtension.cs" />
+    <Compile Include="Models\RoutedMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueExtension.cs" />
     <Compile Include="QueueReader.cs" />

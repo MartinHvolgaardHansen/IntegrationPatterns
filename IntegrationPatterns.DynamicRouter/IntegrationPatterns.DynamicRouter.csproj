@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D930540-32F7-4BD6-9017-A2E3D6BCC595}</ProjectGuid>
+    <ProjectGuid>{3D966EFC-8583-4BA7-8DA3-FF397AF78D70}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>IntegrationPatterns.Router</RootNamespace>
-    <AssemblyName>IntegrationPatterns.Router</AssemblyName>
+    <RootNamespace>IntegrationPatterns.DynamicRouter</RootNamespace>
+    <AssemblyName>IntegrationPatterns.DynamicRouter</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,16 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RouterConsole.cs" />
+    <Compile Include="DynamicRouter.cs" />
+    <Compile Include="DynamicRouterConsole.cs" />
+    <Compile Include="GateInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Router.cs" />
+    <Compile Include="RoutingRule.cs" />
+    <Compile Include="RoutingRuleRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IntegrationPatterns.Common\IntegrationPatterns.Common.csproj">
-      <Project>{a587e621-179e-4d7d-a00d-36eb7f47c644}</Project>
+      <Project>{A587E621-179E-4D7D-A00D-36EB7F47C644}</Project>
       <Name>IntegrationPatterns.Common</Name>
     </ProjectReference>
   </ItemGroup>
